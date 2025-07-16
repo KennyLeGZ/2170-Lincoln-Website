@@ -253,7 +253,6 @@ function Home() {
       </div>
 
       {/* Mobile Dropdown Menu */}
-      {/* Mobile Dropdown Menu */}
       <div className={`dropdown-menu ${isMenuOpen ? 'open' : ''}`}>
         <button className="nav-header-link" onClick={() => scrollToRef(aboutRef1, -200)}>About</button>
         <button className="nav-header-link" onClick={() => navigate('/photos')}>Gallery</button>
