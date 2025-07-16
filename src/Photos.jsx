@@ -110,8 +110,8 @@ function PhotoHeader() {
             ← Back
           </button>
         </div>
-        <div className="header-center" style={{ cursor: 'pointer' }} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <h2 className="header-address">2170 Lincoln - Gallery</h2>
+        <div className="header-center-photo" style={{ cursor: 'pointer' }} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <h2 className="header-address-photo">2170 Lincoln - Gallery</h2>
         </div>
         <div className="header-right">
           <button className="nav-header-link nav-header-btn" onClick={handleContactClick}>

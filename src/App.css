@@ -35,6 +35,7 @@ html, body, #root, app-container {
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
+
 .header-left,
 .header-center,
 .header-right {
@@ -147,42 +148,122 @@ html, body, #root, app-container {
   box-shadow: 0 0 0 3px rgba(123, 102, 81, 0.3); /* soft brown focus ring */
 }
 
+/* Desktop links and buttons - hidden on mobile */
+.desktop-links, .desktop-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Hamburger icon - only visible on mobile */
+.hamburger-icon {
+  display: none;  /* Hide by default */
+  font-size: 2rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* Dropdown menu for mobile - hidden by default */
+.dropdown-menu {
+  display: none;  /* Hidden by default */
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  flex-direction: column;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Show the dropdown menu when it's open */
+.dropdown-menu.open {
+  display: flex;  /* Make it visible when the 'open' class is added */
+  background-color: #F9FAFB;
+}
+
+/* Media Query to target mobile devices */
 @media (max-width: 768px) {
-  .header {
-    position: static;
-    flex-direction: column;
-    height: auto;
-    padding: 1.5rem;
-    gap: 1rem;
-  }
-
-  .header-left,
+  /* Ensure header-center takes full width and centers the text */
   .header-center {
-    justify-content: center;
-    flex: unset;
-    flex-wrap: wrap;
-    text-align: center;
-  }
-
-  .header-address {
-    font-size: 1.8rem;
-  }
-
-  .header-buttons {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .header-buttons button {
     width: 100%;
-    max-width: 250px;
-    font-size: 0.85rem; /* smaller text size for buttons */
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible; /* Make sure underline isn't clipped */
   }
 
-  .nav-header-link {
-    font-size: 1rem; /* smaller text for clickable header links */
+  .header-center .header-address {
+    font-size: 2rem;
+    white-space: nowrap;
+    overflow: visible; /* Ensure underline is visible */
+    text-overflow: ellipsis;
+    position: relative; /* for ::after positioning */
+  }
+
+
+  /* Underline effect for header-address on mobile */
+  .header-center .header-address::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -15px;         /* Adjust this if needed */
+    left: 0;
+    background-color: #707070;
+  }
+
+  .header-right {
+    display: none;              /* Hide the right section on mobile */
+  }
+
+  .header-left {
+    display: flex;              /* Keep the left section (hamburger) visible */
+    align-items: center;        /* Vertically center the hamburger icon */
+    justify-content: flex-start; /* Keep it aligned to the left */
+    position: absolute;         /* Allow free positioning */
+    left: 10px;                 /* Ensure some space from the left edge */
+  }
+
+  /* Hide the desktop navigation links and show hamburger menu on mobile */
+  .desktop-links {
+    display: none;
+  }
+
+  /* Style for hamburger icon (Mobile only) */
+  .hamburger-icon {
+    display: block;             /* Ensure it's visible on mobile */
+    cursor: pointer;
+  }
+
+  /* Mobile dropdown menu setup */
+  .dropdown-menu {
+    display: none;              /* Hidden by default */
+  }
+
+  .dropdown-menu .nav-header-link {
+    padding: 0.75rem 1rem;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    color: #1a1a1a;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 6px;
+  }
+
+  /* Hover effect */
+  .dropdown-menu .nav-header-link:active {
+    background-color: #f0f0f0;
+    color: #000;
   }
 }
+
 
 
 

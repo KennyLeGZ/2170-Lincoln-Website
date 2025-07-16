@@ -4,6 +4,7 @@ import './App.css';
 import Photos from './Photos';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import HamburgerMenu from './HamburgerMenu';
 
 // Outside
 import img0 from './assets/Outside/buildingView.png';
@@ -126,7 +127,13 @@ const unitsData = [
 function Home() {
   const navigate = useNavigate();
 
-  
+  // State for the hamburger menu
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Function to toggle the hamburger menu
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };  
 
   // Slideshow state
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -214,9 +221,17 @@ function Home() {
     {/* Header outside app-container */}
     <header className="header">
       <div className="header-left">
-        <button className="nav-header-link" onClick={() => scrollToRef(aboutRef1, -200)}>About</button>
-        <button className="nav-header-link" onClick={() => navigate('/photos')}>Gallery</button>
-        <button className="nav-header-link" onClick={() => scrollToRef(unitsRef1, -220)}>Available Units</button>
+        {/* Desktop links */}
+        <div className="desktop-links">
+          <button className="nav-header-link" onClick={() => scrollToRef(aboutRef1, -200)}>About</button>
+          <button className="nav-header-link" onClick={() => navigate('/photos')}>Gallery</button>
+          <button className="nav-header-link" onClick={() => scrollToRef(unitsRef1, -220)}>Available Units</button>
+        </div>
+        
+        {/* Hamburger Icon for Mobile */}
+        <div className="hamburger-icon" onClick={toggleMenu}>
+          &#9776;
+        </div>
       </div>
 
       <div className="header-center">
@@ -230,10 +245,25 @@ function Home() {
       </div>
 
       <div className="header-right">
+        {/* Desktop buttons */}
+        <div className="desktop-buttons">
+          <button className="nav-header-link" onClick={handleContactClick}>Contact Leasing Agent</button>
+          <button className="nav-header-link" onClick={openModal}>Book A Tour</button>
+        </div>
+      </div>
+
+      {/* Mobile Dropdown Menu */}
+      {/* Mobile Dropdown Menu */}
+      <div className={`dropdown-menu ${isMenuOpen ? 'open' : ''}`}>
+        <button className="nav-header-link" onClick={() => scrollToRef(aboutRef1, -200)}>About</button>
+        <button className="nav-header-link" onClick={() => navigate('/photos')}>Gallery</button>
+        <button className="nav-header-link" onClick={() => scrollToRef(unitsRef1, -220)}>Available Units</button>
         <button className="nav-header-link" onClick={handleContactClick}>Contact Leasing Agent</button>
         <button className="nav-header-link" onClick={openModal}>Book A Tour</button>
       </div>
+
     </header>
+
 
 
 
