@@ -393,7 +393,7 @@ html, body, #root, app-container {
 
 @media (max-width: 768px) {
   .slideshow-section {
-    margin-top: 10px;
+    margin-top: 60px;
     max-width: 100%;
   }
 

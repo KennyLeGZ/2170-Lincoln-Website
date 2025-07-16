@@ -62,7 +62,7 @@ import conferenceRoomImage from './assets/Amenities/ConferenceRoom.png';
 import wifiIcon from './assets/Icons/wifi.svg';
 import kitchenIcon from './assets/Icons/kitchen.svg';
 import lockIcon from './assets/Icons/security-camera.svg';
-import parkedCarIcon from './assets/Icons/parked-car.svg';
+import heatingCoolingIcon from './assets/Icons/heating-cooling.png';
 import washerIcon from './assets/Icons/washer.png';
 import gymIcon from './assets/Icons/gymIcon.png';
 
@@ -117,9 +117,9 @@ const images = [
 
 // Sample units data
 const unitsData = [
-  { unit: '101', type: '1 Bedroom', size: '750 sq ft', floor: 1, price: '$1,200 / month', image: img1 },
-  { unit: '203', type: '2 Bedroom', size: '1,100 sq ft', floor: 2, price: '$1,650 / month', image: img13 },
-  { unit: '305', type: 'Studio', size: '500 sq ft', floor: 3, price: '$950 / month', image: img27 },
+  { unit: '101', type: '1 Bedroom', size: '750 sq ft', floor: 1, price: '$1,745 / month', image: img1 },
+  { unit: '203', type: '2 Bedroom', size: '1,100 sq ft', floor: 2, price: '$2,345 / month', image: img13 },
+  { unit: '305', type: 'Studio', size: '500 sq ft', floor: 3, price: '$1,645 / month', image: img27 },
 ];
 
 
@@ -341,8 +341,8 @@ function Home() {
               <img src={images[2].src} alt="Beautiful unit at 2170 Lincoln" />
             </div>
             <div className="hero-text">
-              <h1>Your Dream Apartment<br />Awaits at 2170 Lincoln</h1>
-              <p>Modern design, unbeatable location, and unmatched comfort.</p>
+              <h1>Find Your New Home<br />At 2170 Lincoln</h1>
+              <p>Modern Design, Unbeatable Location, and Unmatched Comfort.</p>
               <button className="hero-tour-button" onClick={openModal}>
                 Book a Tour
               </button>
@@ -372,68 +372,23 @@ function Home() {
               <h2>About 2170 Lincoln</h2>
               <p>
                 Welcome to <strong>2170 Lincoln</strong>, a beautifully renovated
-                residential building nestled in the heart of a vibrant neighborhood.
+                residential building located in a vibrant neighborhood close to downtown Montréal. 
                 Designed for modern comfort, it blends convenience with style,
                 offering a high-quality living experience for a diverse community.
               </p>
               <p>
-                Our vision is to foster a welcoming environment with exceptional
-                amenities, where residents can thrive and enjoy an elevated lifestyle.
+                We strive to create a community where comfort meets convenience, offering thoughtfully 
+                designed spaces and modern features that enhance everyday living.
               </p>
               <ul className="about-features">
                 <li>Modern and stylish design</li>
-                <li>Prime location close to amenities</li>
+                <li>Prime location close to Concordia, downtown, and other amenities</li>
                 <li>Spacious, thoughtfully crafted living spaces</li>
                 <li>Community-focused atmosphere</li>
               </ul>
             </div>
           </div>
         </section>
-
-
-        {/*
-        <section
-          ref={aboutRef2}
-          className="about-section white-bg"
-          data-aos="zoom-in"
-          data-aos-once="true"
-          data-aos-duration="400"
-          data-aos-easing="ease-in-out"
-        >
-
-          <div className="about-content-wrapper reverse">
-            <div className="about-image">
-              <img
-                src={images[1].src}
-                alt="Interior view of 2170 Lincoln"
-              />
-            </div>
-
-            <div className="about-text">
-              <h2 className="about-title">More About 2170 Lincoln</h2>
-              <h3>Neighborhood Highlights</h3>
-              <p>
-                Situated in a thriving community, 2170 Lincoln is just steps away from public transit, shopping centers, parks, schools, and a variety of dining options. The neighborhood offers a safe, convenient, and vibrant environment ideal for families, young professionals, and anyone seeking a comfortable urban lifestyle.
-              </p>
-
-              <h3>Who Is It For?</h3>
-              <p>
-                Whether you are a young professional, a small family, or someone looking for a peaceful and well-equipped home, 2170 Lincoln offers a range of unit types and floor plans tailored to suit your needs.
-              </p>
-
-              <h3>Sustainability & Innovation</h3>
-              <p>
-                We prioritize sustainability with eco-friendly building practices and modern smart home technology integrated throughout the property, ensuring energy efficiency and convenience for all residents.
-              </p>
-
-              <h3>Experience 2170 Lincoln</h3>
-              <p>
-                Discover city living elevated with exceptional amenities, a friendly community, and a prime location. Welcome home to 2170 Lincoln.
-              </p>
-            </div>
-          </div>
-        </section>
-        */}
 
         {/* Insert Features Cards Section right here */}
         <section className="features-cards-section white-bg" data-aos="fade-down" data-aos-once="true" data-aos-duration="600" data-aos-easing="ease-in-out">
@@ -442,15 +397,15 @@ function Home() {
             {/* Card 1: Free Wifi */}
             <div className="feature-card">
               <img src={wifiIcon} alt="WiFi icon" className="feature-icon" />
-              <h3>Free High-Speed WiFi</h3>
-              <p>Enjoy complimentary high-speed wireless internet throughout the building to stay connected.</p>
+              <h3>Free Internet</h3>
+              <p>Stay connected with included wireless internet available throughout the building.</p>
             </div>
 
             {/* Card 2: Kitchen Features */}
             <div className="feature-card">
               <img src={kitchenIcon} alt="Kitchen icon" className="feature-icon" />
-              <h3>Fully Equipped Kitchen</h3>
-              <p>A fully equipped kitchen featuring full-size appliances, cookware, utensils, and modern finishes.</p>
+              <h3>Equipped Kitchen</h3>
+              <p>A kitchen equipped with a cooktop, microwave, and other essentials, designed for your convenience and comfort</p>
             </div>
 
             {/* Card 3: Secure Building */}
@@ -460,11 +415,11 @@ function Home() {
               <p>Feel safe with round-the-clock surveillance and secure entry systems for residents.</p>
             </div>
 
-            {/* Card 4: Convenient Parking */}
+            {/* Card 4: Heating and Cooling */}
             <div className="feature-card">
-              <img src={parkedCarIcon} alt="Parking icon" className="feature-icon" />
-              <h3>On-Site Parking</h3>
-              <p>Reserved parking spots available for residents with easy access to the building.</p>
+              <img src={heatingCoolingIcon} alt="Heating/Cooling icon" className="feature-icon" />
+              <h3>Air Conditioning & Heating</h3>
+              <p>Comfortable air conditioning and heating included year-round for your convenience.</p>
             </div>
 
             {/* Card 4: Gym */}
@@ -544,7 +499,6 @@ function Home() {
                     <div key={unit} className="unit-card">
                       <img src={image} alt={`${type} unit ${unit}`} className="unit-image" />
                       <div className="unit-info">
-                        <p><strong>Unit:</strong> {unit}</p>
                         <p><strong>Type:</strong> {type}</p>
                         <p><strong>Size:</strong> {size}</p>
                         <p><strong>Starting Price:</strong> {price}</p>
