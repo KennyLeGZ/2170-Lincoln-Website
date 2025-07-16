@@ -200,12 +200,18 @@ function Home() {
   );
 
   // Smooth scroll to sections
-  const scrollToRef = (ref, offset = 0) => {
+  const scrollToRef = (ref) => {
     if (ref && ref.current) {
-      const top = ref.current.getBoundingClientRect().top + window.pageYOffset + offset;
+      const header = document.querySelector('.header');
+      const headerHeight = header ? header.offsetHeight : 0;
+      const padding = 10;
+
+      const top = ref.current.getBoundingClientRect().top + window.pageYOffset - headerHeight - padding;
+
       window.scrollTo({ top, behavior: 'smooth' });
     }
   };
+
 
   // Open apply modal
   const openModal = () => setShowModal(true);

@@ -102,16 +102,20 @@ function PhotoHeader() {
     <>
       <header className="header lightgray-bg fixed-header">
         <div className="header-left">
-          <button
-            className="nav-header-btn"
-            onClick={() => navigate('/')}
+          <span
+            className="back-arrow"
             aria-label="Back to homepage"
+            role="button"
+            onClick={() => navigate('/')}
+            tabIndex={0} // to make it keyboard-focusable if you want
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') navigate('/'); }}
+            style={{ cursor: 'pointer' }}
           >
-            ← Back
-          </button>
+            ←
+          </span>
         </div>
         <div className="header-center-photo" style={{ cursor: 'pointer' }} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <h2 className="header-address-photo">2170 Lincoln</h2>
+          <h2 className="header-address-photo">2170 LINCOLN</h2>
         </div>
         <div className="header-right">
           <button className="nav-header-link nav-header-btn" onClick={handleContactClick}>
@@ -220,7 +224,7 @@ function Photos() {
   return (
     <>
       <PhotoHeader />
-      <main style={{ padding: '2rem 0', margin: '0', paddingTop: '50px', paddingBottom: '2rem', margin: '0' }}>
+      <main style={{ padding: '2rem 0', margin: '0', paddingTop: '150px', paddingBottom: '2rem', margin: '0' }}>
         <div className="hero-title">
           <h1>Photo Gallery</h1>
         </div>
