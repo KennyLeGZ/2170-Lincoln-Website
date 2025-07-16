@@ -196,7 +196,7 @@ html, body, #root, app-container {
   }
 
   .header-center .header-address {
-    font-size: 2rem;
+    font-size: 1.8rem;
     white-space: nowrap;
     overflow: visible; /* Ensure underline is visible */
     text-overflow: ellipsis;
@@ -551,6 +551,7 @@ th {
 @media (max-width: 900px) {
   .location-section {
     height: auto;
+    padding: 3rem 1.5rem;
   }
 
   .modern-location-wrapper {
@@ -569,6 +570,11 @@ th {
     height: 300px;
   }
 
+  .modern-location-text h2 {
+    font-size: 2.8rem;
+    text-align: center;
+  }
+
   .modern-location-text h2::after {
     margin-left: auto;
     margin-right: auto;
@@ -582,17 +588,6 @@ th {
   box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
-/* Responsive adjustments if needed */
-@media (max-width: 900px) {
-  .location-section {
-    padding: 3rem 1.5rem;
-  }
-
-  .location-section h2 {
-    font-size: 2.8rem;
-    text-align: center;
-  }
-}
 
 
 /* Testimonials Section */
