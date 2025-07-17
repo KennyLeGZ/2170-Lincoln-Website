@@ -112,9 +112,9 @@ const images = [
 
 // Sample units data
 const unitsData = [
-  { unit: '101', type: '1 Bedroom', size: '750 sq ft', floor: 1, price: '$1,745 / month', image: img1 },
-  { unit: '203', type: '2 Bedroom', size: '1,100 sq ft', floor: 2, price: '$2,345 / month', image: img13 },
-  { unit: '305', type: 'Studio', size: '500 sq ft', floor: 3, price: '$1,645 / month', image: img27 },
+  { unit: '101', type: '1 Bedroom', size: '490 sq ft', floor: 1, price: '$1,745 / month', image: img1 },
+  { unit: '203', type: '2 Bedroom', size: '765 sq ft', floor: 2, price: '$2,345 / month', image: img13 },
+  { unit: '305', type: 'Studio', size: '300-342 sq ft', floor: 3, price: '$1,645 / month', image: img27 },
 ];
 
 
