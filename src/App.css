@@ -779,6 +779,29 @@ th {
   font-size: 1.1rem;         /* larger font size */
 }
 
+/* MOBILE STYLES */
+@media (max-width: 768px) {
+  .modal-content {
+    padding: 1.25rem;
+    width: 100%;
+    max-width: none;
+    border-radius: 0.75rem;
+  }
+
+  .modal-content form input,
+  .modal-content form select {
+    padding: 0.85rem;
+    font-size: 1rem;
+  }
+
+  .modal-overlay {
+    align-items: flex-start;
+    padding-top: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
 .highlight-hero {
   padding: 4rem 2rem;
   display: flex;

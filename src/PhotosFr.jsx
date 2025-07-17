@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './Photos.css';
-
 import { useNavigate } from 'react-router-dom';
 
 // 1 Bedroom
@@ -49,51 +48,51 @@ import img38 from './assets/Units/Studio/DSC02683.jpg';
 
 
 const images = [
-  { src: img1, caption: "Spacious 1 Bedroom Living Area", type: '1 bedroom' },
-  { src: img2, caption: "1 Bedroom Living Space", type: '1 bedroom' },
-  { src: img3, caption: "Sunlit Lounge Area With Expansive Window Views", type: '1 bedroom' },
-  { src: img4, caption: "Compact And Practical Desk Setup In The Living Room", type: '1 bedroom' },
-  { src: img5, caption: "Full Living Room Setup With Modern Furnishings", type: '1 bedroom' },
-  { src: img6, caption: "Spacious Walkway To The Bedroom", type: '1 bedroom' },
-  { src: img7, caption: "Modern Kitchen With Sleek Finishes", type: '1 bedroom' },
-  { src: img8, caption: "Functional Living Space", type: '1 bedroom' },
-  { src: img9, caption: "Comfortable And Spacious One-Bedroom Layout", type: '1 bedroom' },
-  { src: img10, caption: "Relaxing Bed Setup", type: '1 bedroom' },
-  { src: img11, caption: "Bright And Airy Bedroom", type: '1 bedroom' },
-  { src: img12, caption: "Clean And Modern Bathroom", type: '1 bedroom' },
-  { src: img13, caption: "Welcoming 2 Bedroom Living Area", type: '2 bedroom' },
-  { src: img14, caption: "Spacious Living Room In 2 Bedroom", type: '2 bedroom' },
-  { src: img15, caption: "Spacious Living Room", type: '2 bedroom' },
-  { src: img16, caption: "Roomy Living Area", type: '2 bedroom' },
-  { src: img17, caption: "Cozy Dining Area", type: '2 bedroom' },
-  { src: img18, caption: "Bright And Airy Living Space", type: '2 bedroom' },
-  { src: img19, caption: "Modern Dining Area And Kitchen Combo", type: '2 bedroom' },
-  { src: img20, caption: "Modern Dining Area And Kitchen Combo", type: '2 bedroom' },
-  { src: img21, caption: "Fully Equipped Kitchen With A Modern Aesthetic", type: '2 bedroom' },
-  { src: img22, caption: "Stylish Modern Kitchen", type: '2 bedroom' },
-  { src: img23, caption: "Cozy Bedroom With Natural Light In 2 Bedroom", type: '2 bedroom' },
-  { src: img24, caption: "Cozy Bedroom With Natural Light In 2 Bedroom", type: '2 bedroom' },
-  { src: img25, caption: "Warm And Airy Bedroom With Plenty Of Natural Light", type: '2 bedroom' },
-  { src: img26, caption: "Bright And Modern Bathroom Space", type: '2 bedroom' },
-  { src: img27, caption: "Modern Studio Apartment", type: 'studio' },
-  { src: img28, caption: "Cozy Studio Living Area", type: 'studio' },
-  { src: img29, caption: "Functional Space With A Desk And Dining Table In Studio", type: 'studio' },
-  { src: img30, caption: "Bright Bedroom In Studio", type: 'studio' },
-  { src: img31, caption: "Relaxing Bed Setup", type: 'studio' },
-  { src: img32, caption: "Modern Kitchen With A Cozy Dining Table In The Studio", type: 'studio' },
-  { src: img33, caption: "Studio Apartment Layout", type: 'studio' },
-  { src: img34, caption: "Studio Apartment Overview", type: 'studio' },
-  { src: img35, caption: "Stylish Work Corner", type: 'studio' },
-  { src: img36, caption: "Stylish Kitchen With Upgrades In Studio", type: 'studio' },
-  { src: img37, caption: "Stylish Kitchen With Upgrades In Studio", type: 'studio' },
-  { src: img38, caption: "Sleek And Modern Bathroom In The Studio Apartment", type: 'studio' }
+  { src: img1, caption: "Espace de vie spacieux d'une chambre", type: '1 bedroom' },
+  { src: img2, caption: "Espace de vie d'une chambre", type: '1 bedroom' },
+  { src: img3, caption: "Salon ensoleillé avec de grandes fenêtres", type: '1 bedroom' },
+  { src: img4, caption: "Bureau compact et pratique dans le salon", type: '1 bedroom' },
+  { src: img5, caption: "Configuration complète du salon avec des meubles modernes", type: '1 bedroom' },
+  { src: img6, caption: "Allée spacieuse vers la chambre", type: '1 bedroom' },
+  { src: img7, caption: "Cuisine moderne avec des finitions élégantes", type: '1 bedroom' },
+  { src: img8, caption: "Espace de vie fonctionnel", type: '1 bedroom' },
+  { src: img9, caption: "Disposition confortable et spacieuse d'une chambre", type: '1 bedroom' },
+  { src: img10, caption: "Configuration de lit relaxante", type: '1 bedroom' },
+  { src: img11, caption: "Chambre lumineuse et aérée", type: '1 bedroom' },
+  { src: img12, caption: "Salle de bain moderne et propre", type: '1 bedroom' },
+  { src: img13, caption: "Espace de vie accueillant de 2 chambres", type: '2 bedroom' },
+  { src: img14, caption: "Salon spacieux dans un appartement de 2 chambres", type: '2 bedroom' },
+  { src: img15, caption: "Salon spacieux", type: '2 bedroom' },
+  { src: img16, caption: "Espace de vie spacieux", type: '2 bedroom' },
+  { src: img17, caption: "Coin repas confortable", type: '2 bedroom' },
+  { src: img18, caption: "Espace de vie lumineux et aéré", type: '2 bedroom' },
+  { src: img19, caption: "Coin repas moderne et cuisine combinée", type: '2 bedroom' },
+  { src: img20, caption: "Coin repas moderne et cuisine combinée", type: '2 bedroom' },
+  { src: img21, caption: "Cuisine entièrement équipée avec une esthétique moderne", type: '2 bedroom' },
+  { src: img22, caption: "Cuisine moderne et élégante", type: '2 bedroom' },
+  { src: img23, caption: "Chambre confortable avec lumière naturelle dans 2 chambres", type: '2 bedroom' },
+  { src: img24, caption: "Chambre confortable avec lumière naturelle dans 2 chambres", type: '2 bedroom' },
+  { src: img25, caption: "Chambre chaleureuse et aérée avec beaucoup de lumière naturelle", type: '2 bedroom' },
+  { src: img26, caption: "Salle de bain moderne et lumineuse", type: '2 bedroom' },
+  { src: img27, caption: "Appartement moderne d'une chambre", type: 'studio' },
+  { src: img28, caption: "Espace de vie confortable dans le studio", type: 'studio' },
+  { src: img29, caption: "Espace fonctionnel avec un bureau et une table à manger dans le studio", type: 'studio' },
+  { src: img30, caption: "Chambre lumineuse dans le studio", type: 'studio' },
+  { src: img31, caption: "Configuration de lit relaxante", type: 'studio' },
+  { src: img32, caption: "Cuisine moderne avec une table à manger confortable dans le studio", type: 'studio' },
+  { src: img33, caption: "Plan de l'appartement studio", type: 'studio' },
+  { src: img34, caption: "Aperçu de l'appartement studio", type: 'studio' },
+  { src: img35, caption: "Coin de travail élégant", type: 'studio' },
+  { src: img36, caption: "Cuisine élégante avec améliorations dans le studio", type: 'studio' },
+  { src: img37, caption: "Cuisine élégante avec améliorations dans le studio", type: 'studio' },
+  { src: img38, caption: "Salle de bain moderne et épurée dans l'appartement studio", type: 'studio' }
 ];
 
 
 function PhotoHeader() {
   const navigate = useNavigate();
-  const goToFrenchPhotos = () => {
-    navigate('/fr/photos');
+  const goToEnglishPhotos = () => {
+    navigate('/photos');
   };
   const [showModal, setShowModal] = useState(false);
   const openModal = () => setShowModal(true);
@@ -110,9 +109,9 @@ function PhotoHeader() {
             className="back-arrow"
             aria-label="Back to homepage"
             role="button"
-            onClick={() => navigate('/')}
+            onClick={() => navigate('/fr')}
             tabIndex={0} // to make it keyboard-focusable if you want
-            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') navigate('/'); }}
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') navigate('/fr'); }}
             style={{ cursor: 'pointer' }}
           >
             ←
@@ -128,7 +127,7 @@ function PhotoHeader() {
           <button className="nav-header-link nav-header-btn" onClick={openModal}>
             Book A Tour
           </button>
-          <button className="nav-header-link nav-header-btn" onClick={goToFrenchPhotos}>FR</button>
+          <button onClick={goToEnglishPhotos} className="nav-header-link">EN</button>
         </div>
       </header>
 
@@ -208,7 +207,7 @@ function PhotoHeader() {
 
 
 
-function Photos() {
+function PhotosFr() {
   const [filter, setFilter] = useState('all');
   const [selectedIndex, setSelectedIndex] = useState(null);
 
@@ -231,20 +230,20 @@ function Photos() {
       <PhotoHeader />
       <main style={{ padding: '2rem 0', margin: '0', paddingTop: '150px', paddingBottom: '2rem', margin: '0' }}>
         <div className="hero-title">
-          <h1>Photo Gallery</h1>
+          <h1>Galerie de Photos</h1>
         </div>
 
         <div className="photo-description">
           <p>
-            Browse through a gallery of 2170 Lincoln's beautifully designed apartments. Whether you’re searching for a studio, one-bedroom, or two-bedroom, each photo highlights the bright, modern, and welcoming spaces that make this appartment feel like home.
+            Parcourez la galerie des magnifiques appartements du 2170 Lincoln. Que vous cherchiez un studio, un logement d'une chambre ou de deux chambres, chaque photo met en valeur les espaces lumineux, modernes et accueillants qui vous feront sentir comme chez vous.
           </p>
         </div>
 
         {/* Filter Panel (same as your code) */}
         <div className="filter-panel">
-          <button className={filter === 'all' ? 'filter-btn active' : 'filter-btn'} onClick={() => setFilter('all')}>All</button>
-          <button className={filter === '1 bedroom' ? 'filter-btn active' : 'filter-btn'} onClick={() => setFilter('1 bedroom')}>1 Bedroom</button>
-          <button className={filter === '2 bedroom' ? 'filter-btn active' : 'filter-btn'} onClick={() => setFilter('2 bedroom')}>2 Bedroom</button>
+          <button className={filter === 'all' ? 'filter-btn active' : 'filter-btn'} onClick={() => setFilter('all')}>Tout</button>
+          <button className={filter === '1 bedroom' ? 'filter-btn active' : 'filter-btn'} onClick={() => setFilter('1 bedroom')}>1 Chambre</button>
+          <button className={filter === '2 bedroom' ? 'filter-btn active' : 'filter-btn'} onClick={() => setFilter('2 bedroom')}>2 Chambres</button>
           <button className={filter === 'studio' ? 'filter-btn active' : 'filter-btn'} onClick={() => setFilter('studio')}>Studio</button>
         </div>
      
@@ -325,4 +324,4 @@ function Photos() {
 }
 
 
-export default Photos;
+export default PhotosFr;

@@ -2,8 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
 import './App.css';
 import Photos from './Photos';
-import HomeFr from './HomeFr';
-import PhotosFr from './PhotosFr';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import HamburgerMenu from './HamburgerMenu';
@@ -71,51 +69,46 @@ import gymIcon from './assets/Icons/gymIcon.png';
 
 
 const images = [
-  { src: img0, caption: "Building View", type: 'outside' },
-  { src: img1, caption: "Spacious 1 Bedroom Living Area", type: '1 bedroom' },
-  { src: img2, caption: "1 Bedroom Living Space", type: '1 bedroom' },
-  { src: img3, caption: "Sunlit Lounge Area With Expansive Window Views", type: '1 bedroom' },
-  { src: img4, caption: "Compact And Practical Desk Setup In The Living Room", type: '1 bedroom' },
-  { src: img5, caption: "Full Living Room Setup With Modern Furnishings", type: '1 bedroom' },
-  { src: img6, caption: "Spacious Walkway To The Bedroom", type: '1 bedroom' },
-  { src: img7, caption: "Modern Kitchen With Sleek Finishes", type: '1 bedroom' },
-  { src: img8, caption: "Functional Living Space", type: '1 bedroom' },
-  { src: img9, caption: "Comfortable And Spacious One-Bedroom Layout", type: '1 bedroom' },
-  { src: img10, caption: "Relaxing Bed Setup", type: '1 bedroom' },
-  { src: img11, caption: "Bright And Airy Bedroom", type: '1 bedroom' },
-  { src: img12, caption: "Clean And Modern Bathroom", type: '1 bedroom' },
-  { src: img13, caption: "2 Bedroom Living Area", type: '2 bedroom' },
-  { src: img14, caption: "Spacious Living Room In 2 Bedroom", type: '2 bedroom' },
-  { src: img15, caption: "Spacious Living Room", type: '2 bedroom' },
-  { src: img16, caption: "Roomy Living Area", type: '2 bedroom' },
-  { src: img17, caption: "Cozy Dining Area", type: '2 bedroom' },
-  { src: img18, caption: "Bright And Airy Living Space", type: '2 bedroom' },
-  { src: img19, caption: "Modern Dining Area And Kitchen Combo", type: '2 bedroom' },
-  { src: img20, caption: "Modern Dining Area And Kitchen Combo", type: '2 bedroom' },
-  { src: img21, caption: "Fully Equipped Kitchen With A Modern Aesthetic", type: '2 bedroom' },
-  { src: img22, caption: "Stylish Modern Kitchen", type: '2 bedroom' },
-  { src: img23, caption: "Cozy Bedroom With Natural Light In 2 Bedroom", type: '2 bedroom' },
-  { src: img24, caption: "Cozy Bedroom With Natural Light In 2 Bedroom", type: '2 bedroom' },
-  { src: img25, caption: "Warm And Airy Bedroom With Plenty Of Natural Light", type: '2 bedroom' },
-  { src: img26, caption: "Bright And Modern Bathroom Space", type: '2 bedroom' },
-  { src: img27, caption: "Modern Studio Apartment", type: 'studio' },
-  { src: img28, caption: "Cozy Studio Living Area", type: 'studio' },
-  { src: img29, caption: "Functional Space With A Desk And Dining Table In Studio", type: 'studio' },
-  { src: img30, caption: "Bright Bedroom In Studio", type: 'studio' },
-  { src: img31, caption: "Relaxing Bed Setup", type: 'studio' },
-  { src: img32, caption: "Modern Kitchen With A Cozy Dining Table In The Studio", type: 'studio' },
-  { src: img33, caption: "Studio Apartment Layout", type: 'studio' },
-  { src: img34, caption: "Studio Apartment Overview", type: 'studio' },
-  { src: img35, caption: "Stylish Work Corner", type: 'studio' },
-  { src: img36, caption: "Stylish Kitchen With Upgrades In Studio", type: 'studio' },
-  { src: img37, caption: "Stylish Kitchen With Upgrades In Studio", type: 'studio' },
-  { src: img38, caption: "Sleek And Modern Bathroom In The Studio Apartment", type: 'studio' }
+  { src: img0, caption: "Vue du bâtiment", type: 'outside' },
+  { src: img1, caption: "Espace de vie spacieux d'une chambre", type: '1 bedroom' },
+  { src: img2, caption: "Espace de vie d'une chambre", type: '1 bedroom' },
+  { src: img3, caption: "Salon ensoleillé avec de grandes fenêtres", type: '1 bedroom' },
+  { src: img4, caption: "Bureau compact et pratique dans le salon", type: '1 bedroom' },
+  { src: img5, caption: "Configuration complète du salon avec des meubles modernes", type: '1 bedroom' },
+  { src: img6, caption: "Allée spacieuse vers la chambre", type: '1 bedroom' },
+  { src: img7, caption: "Cuisine moderne avec des finitions élégantes", type: '1 bedroom' },
+  { src: img8, caption: "Espace de vie fonctionnel", type: '1 bedroom' },
+  { src: img9, caption: "Disposition confortable et spacieuse d'une chambre", type: '1 bedroom' },
+  { src: img10, caption: "Configuration de lit relaxante", type: '1 bedroom' },
+  { src: img11, caption: "Chambre lumineuse et aérée", type: '1 bedroom' },
+  { src: img12, caption: "Salle de bain moderne et propre", type: '1 bedroom' },
+  { src: img13, caption: "Espace de vie accueillant de 2 chambres", type: '2 bedroom' },
+  { src: img14, caption: "Salon spacieux dans un appartement de 2 chambres", type: '2 bedroom' },
+  { src: img15, caption: "Salon spacieux", type: '2 bedroom' },
+  { src: img16, caption: "Espace de vie spacieux", type: '2 bedroom' },
+  { src: img17, caption: "Coin repas confortable", type: '2 bedroom' },
+  { src: img18, caption: "Espace de vie lumineux et aéré", type: '2 bedroom' },
+  { src: img19, caption: "Coin repas moderne et cuisine combinée", type: '2 bedroom' },
+  { src: img20, caption: "Coin repas moderne et cuisine combinée", type: '2 bedroom' },
+  { src: img21, caption: "Cuisine entièrement équipée avec une esthétique moderne", type: '2 bedroom' },
+  { src: img22, caption: "Cuisine moderne et élégante", type: '2 bedroom' },
+  { src: img23, caption: "Chambre confortable avec lumière naturelle dans 2 chambres", type: '2 bedroom' },
+  { src: img24, caption: "Chambre confortable avec lumière naturelle dans 2 chambres", type: '2 bedroom' },
+  { src: img25, caption: "Chambre chaleureuse et aérée avec beaucoup de lumière naturelle", type: '2 bedroom' },
+  { src: img26, caption: "Salle de bain moderne et lumineuse", type: '2 bedroom' },
+  { src: img27, caption: "Appartement moderne d'une chambre", type: 'studio' },
+  { src: img28, caption: "Espace de vie confortable dans le studio", type: 'studio' },
+  { src: img29, caption: "Espace fonctionnel avec un bureau et une table à manger dans le studio", type: 'studio' },
+  { src: img30, caption: "Chambre lumineuse dans le studio", type: 'studio' },
+  { src: img31, caption: "Configuration de lit relaxante", type: 'studio' },
+  { src: img32, caption: "Cuisine moderne avec une table à manger confortable dans le studio", type: 'studio' },
+  { src: img33, caption: "Plan de l'appartement studio", type: 'studio' },
+  { src: img34, caption: "Aperçu de l'appartement studio", type: 'studio' },
+  { src: img35, caption: "Coin de travail élégant", type: 'studio' },
+  { src: img36, caption: "Cuisine élégante avec améliorations dans le studio", type: 'studio' },
+  { src: img37, caption: "Cuisine élégante avec améliorations dans le studio", type: 'studio' },
+  { src: img38, caption: "Salle de bain moderne et épurée dans l'appartement studio", type: 'studio' }
 ];
-
-
-
-
-
 
 // Sample units data
 const unitsData = [
@@ -125,9 +118,17 @@ const unitsData = [
 ];
 
 
+function HomeFr() {
 
-function Home() {
   const navigate = useNavigate();
+
+  const goToEnglish = () => {
+    navigate('/');
+  };
+
+  const goToPhotosFr = () => {
+    navigate('/fr/photos');
+  };
 
   // State for the hamburger menu
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -224,6 +225,7 @@ function Home() {
     window.location.href = 'mailto:kle@gestionzagora.com';
   };
 
+
   return (
   <>
     {/* Header outside app-container */}
@@ -231,9 +233,9 @@ function Home() {
       <div className="header-left">
         {/* Desktop links */}
         <div className="desktop-links">
-          <button className="nav-header-link" onClick={() => scrollToRef(aboutRef1, -200)}>About</button>
-          <button className="nav-header-link" onClick={() => navigate('/photos')}>Gallery</button>
-          <button className="nav-header-link" onClick={() => scrollToRef(unitsRef1, -220)}>Available Units</button>
+          <button className="nav-header-link" onClick={() => scrollToRef(aboutRef1, -200)}>À Propos</button>
+          <button className="nav-header-link" onClick={goToPhotosFr}>Galerie</button>
+          <button className="nav-header-link" onClick={() => scrollToRef(unitsRef1, -220)}>Unités Disponibles</button>
         </div>
         
         {/* Hamburger Icon for Mobile */}
@@ -255,19 +257,17 @@ function Home() {
       <div className="header-right">
         {/* Desktop buttons */}
         <div className="desktop-buttons">
-          <button className="nav-header-link" onClick={handleContactClick}>Contact Leasing Agent</button>
-          <button className="nav-header-link" onClick={openModal}>Book A Tour</button>
-          <button className="nav-header-link" onClick={() => navigate('/fr')}>FR</button>
+          <button className="nav-header-link" onClick={handleContactClick}>Contacter l'Agent de Location</button>
+          <button className="nav-header-link" onClick={openModal}>Réserver Une Visite</button>
+          <button onClick={goToEnglish} className="nav-header-link">EN</button>
         </div>
       </div>
 
       {/* Mobile Dropdown Menu */}
       <div className={`dropdown-menu ${isMenuOpen ? 'open' : ''}`}>
-        <button className="nav-header-link" onClick={() => scrollToRef(aboutRef1, -200)}>About</button>
-        <button className="nav-header-link" onClick={() => navigate('/photos')}>Gallery</button>
-        <button className="nav-header-link" onClick={() => scrollToRef(unitsRef1, -220)}>Available Units</button>
-        <button className="nav-header-link" onClick={handleContactClick}>Contact Leasing Agent</button>
-        <button className="nav-header-link" onClick={openModal}>Book A Tour</button>
+        <button className="nav-header-link" onClick={() => scrollToRef(aboutRef1, -200)}>À Propos</button>
+        <button className="nav-header-link" onClick={() => navigate('/photos')}>Galerie</button>
+        <button className="nav-header-link" onClick={() => scrollToRef(unitsRef1, -220)}>Unités Disponibles</button>
       </div>
 
     </header>
@@ -341,10 +341,10 @@ function Home() {
               <img src={images[2].src} alt="Beautiful unit at 2170 Lincoln" />
             </div>
             <div className="hero-text">
-              <h1>Find Your New Home<br />At 2170 Lincoln</h1>
-              <p>Modern Design, Unbeatable Location, and Unmatched Comfort.</p>
+              <h1>Trouvez Votre Nouvelle Maison<br />À 2170 Lincoln</h1>
+              <p>Design moderne, emplacement imbattable et confort inégalé.</p>
               <button className="hero-tour-button" onClick={openModal}>
-                Book a Tour
+                Réserver Une Visite
               </button>
             </div>
           </div>
@@ -369,22 +369,22 @@ function Home() {
             </div>
 
             <div className="about-text">
-              <h2>About 2170 Lincoln</h2>
+              <h2>À Propos Du <br />2170 Lincoln</h2>
               <p>
-                Welcome to <strong>2170 Lincoln</strong>, a beautifully renovated
-                residential building located in a vibrant neighborhood close to downtown Montréal. 
-                Designed for modern comfort, it blends convenience with style,
-                offering a high-quality living experience for a diverse community.
+                Bienvenue à <strong>2170 Lincoln</strong>, un immeuble résidentiel magnifiquement rénové
+                situé dans un quartier dynamique près du centre-ville de Montréal.
+                Conçu pour le confort moderne, il allie commodité et style,
+                offrant une expérience de vie de haute qualité pour une communauté diversifiée.
               </p>
               <p>
-                We strive to create a community where comfort meets convenience, offering thoughtfully 
-                designed spaces and modern features that enhance everyday living.
+                Nous nous efforçons de créer une communauté où le confort rencontre la commodité, offrant des espaces soigneusement 
+                conçus et des caractéristiques modernes qui améliorent la vie quotidienne.
               </p>
               <ul className="about-features">
-                <li>Modern and stylish design</li>
-                <li>Prime location close to Concordia, Dawson, downtown, and other amenities</li>
-                <li>Spacious, thoughtfully crafted living spaces</li>
-                <li>Community-focused atmosphere</li>
+                <li>Design moderne et élégant</li>
+                <li>Emplacement privilégié à proximité de Concordia, Dawson, du centre-ville et d'autres commodités</li>
+                <li>Espaces de vie spacieux et soigneusement conçus</li>
+                <li>Atmosphère axée sur la communauté</li>
               </ul>
             </div>
           </div>
@@ -392,48 +392,48 @@ function Home() {
 
         {/* Insert Features Cards Section right here */}
         <section className="features-cards-section white-bg" data-aos="fade-down" data-aos-once="true" data-aos-duration="600" data-aos-easing="ease-in-out">
-          <h2>Live Better at 2170 Lincoln</h2>
+          <h2>Vivez Mieux Au 2170 Lincoln</h2>
           <div className="features-cards-container">
             {/* Card 1: Free Wifi */}
             <div className="feature-card">
               <img src={wifiIcon} alt="WiFi icon" className="feature-icon" />
-              <h3>Free Internet</h3>
-              <p>Stay connected with included wireless internet available throughout the building.</p>
+              <h3>Internet Gratuit</h3>
+              <p>Restez connecté avec l'internet sans fil inclus dans tout l'immeuble.</p>
             </div>
 
             {/* Card 2: Kitchen Features */}
             <div className="feature-card">
               <img src={kitchenIcon} alt="Kitchen icon" className="feature-icon" />
-              <h3>Equipped Kitchen</h3>
-              <p>A kitchen equipped with a cooktop, microwave, and other essentials, designed for your convenience and comfort</p>
+              <h3>Cuisine Équipée</h3>
+              <p>Une cuisine équipée d'une plaque de cuisson, d'un micro-ondes et d'autres essentiels, conçue pour votre confort et votre commodité.</p>
             </div>
 
             {/* Card 3: Secure Building */}
             <div className="feature-card">
               <img src={lockIcon} alt="Lock icon" className="feature-icon" />
-              <h3>24/7 Secure Access</h3>
-              <p>Feel safe with round-the-clock surveillance and secure entry systems for residents.</p>
+              <h3>Accès Sécurisé 24/7</h3>
+              <p>Restez en sécurité grâce à une surveillance continue et des systèmes d'entrée sécurisés pour les résidents.</p>
             </div>
 
             {/* Card 4: Heating and Cooling */}
             <div className="feature-card">
               <img src={heatingCoolingIcon} alt="Heating/Cooling icon" className="feature-icon" />
-              <h3>Air Conditioning & Heating</h3>
-              <p>Comfortable air conditioning and heating included year-round for your convenience.</p>
+              <h3>Climatisation & Chauffage</h3>
+              <p>Climatisation et chauffage confortables inclus toute l'année pour votre commodité.</p>
             </div>
 
             {/* Card 4: Gym */}
             <div className="feature-card feature-card-medium">
               <img src={gymIcon} alt="Gym icon" className="feature-icon" />
-              <h3>On-Site Gym</h3>
-              <p>Stay fit and active with our fully equipped on-site gym, available 24/7 for residents.</p>
+              <h3>Gym Sur Place</h3>
+              <p>Restez en forme et actif avec notre gym entièrement équipé sur place, disponible 24/7 pour les résidents.</p>
             </div>
 
             {/* Card 5: In-Unit Washer/Dryer */}
             <div className="feature-card feature-card-medium">
               <img src={washerIcon} alt="Washer/Dryer icon" className="feature-icon" />
-              <h3>Laundry Room</h3>
-              <p>Convenient on-site laundry with modern washers and dryers.</p>
+              <h3>Buanderie</h3>
+              <p>Buanderie pratique sur place avec des lave-linge et des sèche-linge modernes.</p>
             </div>
           </div>
         </section>
@@ -450,8 +450,8 @@ function Home() {
               <img src={gymImage} alt="Gym at 2170 Lincoln" />
             </div>
             <div className="amenities-hero-text">
-              <h1>Modern Gym with Stunning <br />Downtown Montreal View</h1>
-              <p>Enjoy your workouts in a bright, modern gym with stunning panoramic views of downtown Montréal.</p>
+              <h1>Gym Moderne avec Vue Imprenable sur le Centre-Ville de Montréal</h1>
+              <p>Profitez de vos entraînements dans une salle de sport moderne et lumineuse offrant une vue panoramique imprenable sur le centre-ville de Montréal.</p>
             </div>
           </div>
         </section>
@@ -468,8 +468,8 @@ function Home() {
               <img src={conferenceRoomImage} alt="Conference Room at 2170 Lincoln" />
             </div>
             <div className="amenities-hero-text">
-              <h1>Fully Equipped Conference Space</h1>
-              <p>Host your meetings and events in our elegant conference room, designed to provide a professional and comfortable space for all your gatherings.</p>
+              <h1>Salle de Conférence Entièrement Équipée</h1>
+              <p>Organisez vos réunions et événements dans notre élégante salle de conférence, conçue pour offrir un espace professionnel et confortable pour tous vos rassemblements.</p>
             </div>
           </div>
         </section>
@@ -484,7 +484,7 @@ function Home() {
           data-aos-duration="400"
           data-aos-easing="ease-in-out"
         >
-          <h2>Available Units & Floor Plans</h2>
+          <h2>Unités et Plans d'Étage Disponibles</h2>
 
           <div className="units-card-container">
             {['Studio', '1 Bedroom', '2 Bedroom'].map((type) => {
@@ -500,8 +500,8 @@ function Home() {
                       <img src={image} alt={`${type} unit ${unit}`} className="unit-image" />
                       <div className="unit-info">
                         <p><strong>Type:</strong> {type}</p>
-                        <p><strong>Size:</strong> {size}</p>
-                        <p><strong>Starting Price:</strong> {price}</p>
+                        <p><strong>Taille:</strong> {size}</p>
+                        <p><strong>Prix de Départ:</strong> {price}</p>
                       </div>
                     </div>
                   ))}
@@ -523,11 +523,11 @@ function Home() {
         >
           <div className="modern-location-wrapper">
             <div className="modern-location-text">
-              <h2>Discover the Neighborhood</h2>
+              <h2>Découvrez le Quartier</h2>
               <p>
-                2170 Lincoln is ideally located just 10 minutes from <b>downtown Montréal</b> and <b>Mount Royal Park</b>, and only steps away from <b>Concordia University</b> and <b>Dawson College</b>.
-                Metro stations, shopping centres, cafés, and daily conveniences are all next to the building, making life easy and accessible.
-                Whether you're commuting, studying, or unwinding, 2170 Lincoln is the perfect place to be.
+                2170 Lincoln est idéalement situé à seulement 10 minutes du <b>centre-ville de Montréal</b> et du <b>Parc du Mont-Royal</b>, et à quelques pas de <b>l'Université Concordia</b> et du <b>Collège Dawson</b>.
+                Les stations de métro, les centres commerciaux, les cafés et les commodités quotidiennes sont tous à côté de l'immeuble, rendant la vie facile et accessible.
+                Que vous fassiez la navette, étudiiez ou vous détendiez, 2170 Lincoln est l'endroit idéal.
               </p>
             </div>
             <div className="modern-location-map">
@@ -551,27 +551,27 @@ function Home() {
           data-aos-once="true"
           data-aos-duration="600"
         >
-          <h2 className="testimonials-title">What Our Residents Say</h2>
+          <h2 className="testimonials-title">Ce Que Nos Résidents Disent</h2>
           <div className="testimonials-grid">
             <div className="testimonial-card">
               <p className="testimonial-text">
-                "Highly recommend living at 2170 Lincoln! The apartments are spacious and comfortable. The building is well-maintained and clean, and the location is great.
-                I’m happy to call this place home and definitely plan to stay long-term!"
+                "Je recommande vivement de vivre au 2170 Lincoln ! Les appartements sont spacieux et confortables. L'immeuble est bien entretenu et propre, et l'emplacement est idéal.
+                Je suis heureux d'appeler cet endroit chez moi et je prévois définitivement de rester à long terme !"
               </p>
               <p className="testimonial-author"></p>
             </div>
             <div className="testimonial-card">
               <p className="testimonial-text">
-                "My husband and I had an amazing experience living here. It was our first time in Montréal and the location is just as great as described. It is close to vibrant neighborhoods, restaurants, and bars. 
-                Our apartment felt spacious with a full kitchen, a nice bathroom, and a lovely balcony.
-                I would definitely recommend 2170 Lincoln to anyone looking for a great home."
+                "Mon mari et moi avons eu une expérience incroyable en vivant ici. C'était notre première fois à Montréal et l'emplacement est tout aussi génial que décrit. Il est proche de quartiers animés, de restaurants et de bars.
+                Notre appartement semblait spacieux avec une cuisine complète, une belle salle de bain et un joli balcon.
+                Je recommanderais définitivement 2170 Lincoln à quiconque à la recherche d'un excellent chez-soi."
               </p>
               <p className="testimonial-author"></p>
             </div>
             <div className="testimonial-card">
               <p className="testimonial-text">
-                "Living at 2170 Lincoln has been fantastic. The apartments are spacious and clean and the location is unbeatable because it is close to everything you need.
-                It truly feels like home and I’m happy to recommend it to anyone looking for a great place to live."
+                "Vivre au 2170 Lincoln a été fantastique. Les appartements sont spacieux et propres et l'emplacement est imbattable car il est proche de tout ce dont vous avez besoin.
+                On se sent vraiment chez soi et je suis heureux de le recommander à quiconque à la recherche d'un excellent endroit où vivre."
               </p>
               <p className="testimonial-author"></p>
             </div>
@@ -660,18 +660,4 @@ function Home() {
   );
 }
 
-function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/photos" element={<Photos />} />
-        <Route path="/fr" element={<HomeFr />} />
-        <Route path="/fr/photos" element={<PhotosFr />} />
-      </Routes>
-    </Router>
-  );
-}
-
-export default App;
-
+export default HomeFr;
